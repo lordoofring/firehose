@@ -192,7 +192,7 @@ class FireEnv(Env):
         elif self.observation_type == "forest":
             # Forest as -1 (harvested), 0 (nothing), 1 (on fire)
             self.observation_space = spaces.Box(
-                low=-1, high=1, shape=(self.height, self.width), dtype=np.uint8
+                low=-1, high=1, shape=(self.height, self.width), dtype=np.int8
             )
         elif self.observation_space == "time":
             # Blind model
