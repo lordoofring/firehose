@@ -6,8 +6,8 @@ from typing import Dict, List, Optional, Set, Tuple
 import cv2
 import numpy as np
 import pandas as pd
-from gym import Env, spaces
-from gym.spaces import Box, Discrete
+from gymnasium import Env, spaces
+from gymnasium.spaces import Box, Discrete
 
 from firehose.config import training_enabled
 from firehose.helpers import ExperimentHelper, IgnitionPoints
