@@ -1,4 +1,4 @@
-EIGENDIR = /usr/local/Cellar/eigen/3.4.0_1/include/eigen3/
+EIGENDIR = /usr/include/eigen3/
 CC = g++
 MPCC = g++
 OPENMP = -openmp
@@ -10,10 +10,10 @@ TARGETS = Cell2Fire
 all:	$(TARGETS)
 
 Cell2Fire: Cell2Fire.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o Ellipse.o
-	$(CC) -o $@ $(LIBS) -Xclang -fopenmp -lomp Cell2Fire.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o Ellipse.o
+	$(CC) -o $@ $(LIBS) -fopenmp Cell2Fire.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o Ellipse.o
 
 Cell2Fire.o: Cell2Fire.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o WriteCSV.o
-	$(CC) -c $(CFLAGS) -Xclang -fopenmp -lomp Cell2Fire.cpp
+	$(CC) -c $(CFLAGS)  -fopenmp -l Cell2Fire.cpp
 
 SpottingFBP.o: SpottingFBP.cpp SpottingFBP.h CellsFBP.h
 	$(CC) -c $(CFLAGS) SpottingFBP.cpp CellsFBP.h
