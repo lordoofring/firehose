@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-from gym.wrappers.monitoring.video_recorder import VideoRecorder
+from gymnasium.wrappers import RecordVideo
 from gym_env import FireEnv
 
 
@@ -18,7 +18,7 @@ class FirehoseVideoRecorder:
                 os.mkdir("videos")
 
             video_fname = f"videos/{args.algo}-{args.map}-{date_str}.mp4"
-            self.video_recorder = VideoRecorder(env, video_fname, enabled=True)
+            self.video_recorder = RecordVideo(env, video_fname, enabled=True)
 
     def capture_frame(self):
         if self.video_recorder is not None:
