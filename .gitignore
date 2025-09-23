@@ -51,3 +51,4 @@ stable-baselines3-contrib
 slurm*.out
 
 *monitor.csv
+updating_notes.txt
