@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 import torch
 from stable_baselines3.common.preprocessing import is_image_space
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
