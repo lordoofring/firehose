@@ -52,3 +52,5 @@ slurm*.out
 
 *monitor.csv
 updating_notes.txt
+bug_destroyer/
+venv/
