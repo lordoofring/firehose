@@ -270,7 +270,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-t",
         "--train_steps",
-        default=5_000_000,
+        default=5_000,## edit to test and see results quickly.
         type=int,
         help="Number of training steps",
     )
@@ -288,7 +288,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "-l",
         "--tf_logdir",
-        default=f"/home/gridsan/{os.environ['USER']}/firehosetmp",
+        #TODO: change the directory to a relative path.
+        default=f"/home/{os.environ['USER']}/Documents/firehosetmp",
         help="Logdir for Tensorboard",
     )
     # parser.add_argument(
