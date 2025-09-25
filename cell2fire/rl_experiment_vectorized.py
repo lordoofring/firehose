@@ -15,7 +15,7 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.utils import set_random_seed
 from stable_baselines3.common.vec_env import SubprocVecEnv
 
-from cell2fire.gym_env import FireEnv
+from gym_env import FireEnv
 from firehose.config import set_training_enabled
 from firehose.models import PaddedNatureCNN
 from firehose.rewards import FireSizeReward, REWARD_FUNCTIONS
