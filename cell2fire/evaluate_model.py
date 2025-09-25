@@ -9,7 +9,7 @@ from sb3_contrib import TRPO, MaskablePPO
 from sb3_contrib.common.maskable.utils import get_action_masks
 from stable_baselines3 import A2C, DQN, PPO
 
-from cell2fire.gym_env import FireEnv
+from gym_env import FireEnv
 from firehose.baselines import (
     HumanExpertAlgorithm,
     HumanInputAlgorithm,
