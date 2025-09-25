@@ -470,8 +470,9 @@ class FireEnv(Env):
 
         # Kill and respawn Cell2Fire process
         self.fire_process.reset()
+        info = {}
 
-        return self.get_observation()
+        return self.get_observation(), info
 
     def close(self):
         """Clean up after ourselves"""
