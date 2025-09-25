@@ -375,7 +375,9 @@ class FireEnv(Env):
         reward = self.reward_func(reward_mask=self.reward_mask, action=action)
 
         # Check if we've exceeded max steps or Cell2Fire finished simulating
-        done = self.iter >= self.max_steps or self.fire_process.finished
+        truncated= self.iter >= self.max_steps
+        terminated = self.fire_process.finished
+        
         if not self.verbose and not training_enabled():
             print(
                 f"\rStep {self.iter + 1}/{self.max_steps}. "
@@ -383,12 +385,13 @@ class FireEnv(Env):
                 f"Reward: {reward}",
                 end="",
             )
-            if done:
+            if terminated or truncated:
                 print()
+        info = {}
 
         self.iter += 1
         obs = self.get_observation()
-        return obs, reward, done, {}
+        return obs, reward, terminated, truncated, info
 
     def get_painted_image(self) -> np.ndarray:
         # Make copy of array as we modify it in-place
