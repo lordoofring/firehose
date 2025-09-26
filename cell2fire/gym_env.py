@@ -36,7 +36,7 @@ class FireEnv(Env):
 
     def __init__(
         self,
-        fire_map: str = "Harvest40x40",
+        fire_map: str = "Sub40x40",
         action_type: str = "flat",
         observation_type: str = "forest",
         max_steps: int = 200,
@@ -113,6 +113,7 @@ class FireEnv(Env):
 
         # Note that the observation space != underlying state which is used for rewards
         self.observation_type = observation_type
+        self.render_mode = observation_type # make Record_Video happy
         self._set_observation_space()
 
         # Set initial state to be empty
@@ -490,7 +491,7 @@ def main(debug: bool, delay_time: float = 0.0, **env_kwargs):
     env = FireEnv(**env_kwargs, verbose=debug)
     env.render()
 
-    _ = env.reset()
+    _,_ = env.reset()
 
     terminated = False
     truncated = False
