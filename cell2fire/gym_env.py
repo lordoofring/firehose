@@ -359,7 +359,10 @@ class FireEnv(Env):
 
             obs = self.get_observation()
             reward = self.reward_func(reward_mask=self.reward_mask, action=action)
-            return obs, reward, True, {}
+            truncated = True  #this should be a trauncated event right?
+            terminated = True
+
+            return obs, reward, terminated,truncated, {}
         else:
             # Use last CSV as that is most recent forest
             state_file = csv_files[-1]
@@ -489,12 +492,13 @@ def main(debug: bool, delay_time: float = 0.0, **env_kwargs):
 
     _ = env.reset()
 
-    done = False
+    terminated = False
+    truncated = False
     num_steps = 0
-    while not done:
+    while not truncated or terminated:
         action = env.action_space.sample()
         # try:
-        state, reward, done, info = env.step(action)
+        state, reward, truncated, terminated, info = env.step(action)
         num_steps += 1
         # except Exception as e:
         #     env.fire_process.kill()
