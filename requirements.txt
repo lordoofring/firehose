@@ -17,3 +17,4 @@ tensorboard
 #newer version of sb3 contrib 
 git+https://github.com/Stable-Baselines-Team/stable-baselines3-contrib
 
+MoviePy
