@@ -195,7 +195,7 @@ class FireEnv(Env):
             self.observation_space = spaces.Box(
                 low=-1, high=1, shape=(self.height, self.width), dtype=np.int8
             )
-        elif self.observation_space == "time":
+        elif self.observation_type == "time":
             # Blind model
             self.observation_space = spaces.Box(
                 low=0,
@@ -417,7 +417,7 @@ class FireEnv(Env):
         im[ignition_point.y, ignition_point.x] = _IGNITION_COLOR
 
         return im
-
+    #temporarily modify to rgb_array for recording purposes.
     def render(self, mode="human", scale_factor: int = 10, **kwargs):
         """Render the geographic image and fire"""
         if mode not in {"human", "rgb_array"}:
